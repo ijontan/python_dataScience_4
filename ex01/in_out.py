@@ -9,9 +9,11 @@ def pow(x: int | float) -> int | float:
 
 
 def outer(x: int | float, function) -> object:
+    """outer function"""
     count = 0
 
     def inner() -> float:
+        """inner function"""
         nonlocal count
         count += 1
         value = x
