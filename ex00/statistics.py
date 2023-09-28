@@ -7,13 +7,20 @@ def ft_mean(*args: any) -> float:
 
 def ft_median(*args: any) -> float:
     """median function"""
-    return sorted(args)[len(args)//2]
+    s_args = sorted(args)
+    if len(args) % 2 == 0:
+        return (s_args[len(args)//2-1] + s_args[len(args)//2])/2
+    return s_args[len(args)//2]
 
 
 def ft_quartile(*args: any) -> list:
     """quartile function"""
-    first_q = sorted(args)[len(args)//4]
-    third_q = sorted(args)[len(args)//4*3]
+    s_args = sorted(args)
+    first_q = s_args[len(args)//4]
+    third_q = s_args[len(args)//4*3]
+    if len(args) % 2 == 0:
+        first_q = (s_args[len(args)//4-1] + s_args[len(args)//4])/2
+        third_q = (s_args[len(args)//4*3-1] + s_args[len(args)//4*3])/2
     return [float(first_q), float(third_q)]
 
 
